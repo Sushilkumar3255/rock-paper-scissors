@@ -1,15 +1,17 @@
 let playerPoints = 0;
 let computerPoints = 0;
-let choices = ["Rock", "Paper", "Scissors"];
+const choices = ["Rock", "Paper", "Scissors"];
 
 // Here we taking the choice of computer
-getComputerChoice = () => choices[Math.floor(Math.random()*choices.length)]
+const getComputerChoice = () => choices[Math.floor(Math.random()*choices.length)];
 
 // Here we are Playing a round of game between Player and Computer
 playRound = (playerSelection, computerSelection) => {
-    switch(playerSelection.toLowerCase()){
+    const playerChoice = playerSelection.toLowerCase();
+    const computerChoice = computerSelection.toLowerCase();
+    switch(playerChoice){
         case 'rock':
-            switch(computerSelection.toLowerCase()){
+            switch(computerChoice){
                 case 'paper':
                     return ("Computer");
                 case 'scissors':
@@ -18,7 +20,7 @@ playRound = (playerSelection, computerSelection) => {
                     return ("Tie");
             }
         case 'paper':
-            switch(computerSelection.toLowerCase()){
+            switch(computerChoice){
                 case 'scissors':
                     return ("Computer");
                 case 'rock':
@@ -27,7 +29,7 @@ playRound = (playerSelection, computerSelection) => {
                     return ("Tie");
             }
         case 'scissors':
-            switch(computerSelection.toLowerCase()){
+            switch(computerChoice){
                 case 'rock':
                     return ("Computer");
                 case 'paper':
@@ -44,11 +46,11 @@ playRound = (playerSelection, computerSelection) => {
 printResult = (result, playerSelection, computerSelection) => {
     switch(result){
         case "Player":
-            playerPoints = playerPoints + 1;
+            playerPoints++;
             console.log(`You win! ${playerSelection} beats ${computerSelection}`);
             break;
         case "Computer":
-            computerPoints = computerPoints + 1;
+            computerPoints++;
             console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
             break;
         default:
@@ -59,9 +61,9 @@ printResult = (result, playerSelection, computerSelection) => {
 // This is the main game function which takes the choices of player and computer and finds the winner
 game = () => {
     for(let i = 0; i < 5; i++){
-        let playerSelection = prompt("Enter your choice: ");
-        let computerSelection = getComputerChoice();
-        let result = playRound(playerSelection, computerSelection);
+        const playerSelection = prompt("Enter your choice: ");
+        const computerSelection = getComputerChoice();
+        const result = playRound(playerSelection, computerSelection);
         printResult(result, playerSelection, computerSelection);
     }
 
