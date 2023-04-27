@@ -6,44 +6,44 @@ const choices = ["Rock", "Paper", "Scissors"];
 const getComputerChoice = () => choices[Math.floor(Math.random()*choices.length)];
 
 // Here we are Playing a round of game between Player and Computer
-playRound = (playerSelection, computerSelection) => {
+const playRound = (playerSelection, computerSelection) => {
     const playerChoice = playerSelection.toLowerCase();
     const computerChoice = computerSelection.toLowerCase();
     switch(playerChoice){
         case 'rock':
             switch(computerChoice){
                 case 'paper':
-                    return ("Computer");
+                    return "Computer";
                 case 'scissors':
-                    return ("Player");
+                    return "Player";
                 default:
-                    return ("Tie");
+                    return "Tie";
             }
         case 'paper':
             switch(computerChoice){
                 case 'scissors':
-                    return ("Computer");
+                    return "Computer";
                 case 'rock':
-                    return ("Player");
+                    return "Player";
                 default:
-                    return ("Tie");
+                    return "Tie";
             }
         case 'scissors':
             switch(computerChoice){
                 case 'rock':
-                    return ("Computer");
+                    return "Computer";
                 case 'paper':
-                    return ("Player");
+                    return "Player";
                 default:
-                    return ("Tie");
+                    return "Tie";
             }
         default:
-            return ("Invalid Choice");
+            return "Invalid Choice";
     }
 }
 
 // This will print the result of a round
-printResult = (result, playerSelection, computerSelection) => {
+const printResult = (result, playerSelection, computerSelection) => {
     switch(result){
         case "Player":
             playerPoints++;
@@ -59,7 +59,7 @@ printResult = (result, playerSelection, computerSelection) => {
 }
 
 // This is the main game function which takes the choices of player and computer and finds the winner
-game = () => {
+const game = () => {
     for(let i = 0; i < 5; i++){
         const playerSelection = prompt("Enter your choice: ");
         const computerSelection = getComputerChoice();
