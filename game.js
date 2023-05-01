@@ -74,7 +74,7 @@ const printResult = (result,playerSelection,computerSelection) => {
         case "Tie":
             let tieMsg = document.createElement('div');
             tieMsg.style.color = 'blue';
-            tieMsg.textContent = `Game Tied`;
+            tieMsg.textContent = "Game Tied";
             results.appendChild(tieMsg); 
             break;
         default:
@@ -84,8 +84,8 @@ const printResult = (result,playerSelection,computerSelection) => {
 
 // Function to check who wins the game
 const checkResult = () => {
-    playerScore.textContent = `${playerPoints}`;
-    compScore.textContent = `${compPoints}`;
+    playerScore.textContent = playerPoints;
+    compScore.textContent = compPoints;
     if (compPoints === 5  || playerPoints === 5){
         if(compPoints > playerPoints){
             alert("You Lose! Better Luck Next Time");
