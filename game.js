@@ -2,16 +2,16 @@ let compPoints = 0;
 let playerPoints = 0;
 let playerSelection = "";
 let computerSelection = "";
-let body = document.querySelector(".results-container");
-let resultsContainer = document.createElement('div');
+const body = document.querySelector(".results-container");
+const resultsContainer = document.createElement('div');
 resultsContainer.className = "results";
 body.append(resultsContainer);
-let results = document.querySelector('.results');
-let scoreContainer = document.querySelector('.scorecard');
-let playerScore = document.createElement('div');
+const results = document.querySelector('.results');
+const scoreContainer = document.querySelector('.scorecard');
+const playerScore = document.createElement('div');
 playerScore.className = "item";
 scoreContainer.appendChild(playerScore);
-let compScore = document.createElement('div');
+const compScore = document.createElement('div');
 compScore.className = "item";
 scoreContainer.appendChild(compScore);
 const options = ["rock", "paper", "scissors"];
@@ -83,11 +83,11 @@ const printResult = (result,playerSelection,computerSelection) => {
 }
 
 // Function to check who wins the game
-function checkResult(){
-    playerScore.textContent = `${playerPoints}`
-    compScore.textContent = `${compPoints}`
-    if (compPoints == 5  || playerPoints == 5){
-        if(compPoints >playerPoints){
+const checkResult = () => {
+    playerScore.textContent = `${playerPoints}`;
+    compScore.textContent = `${compPoints}`;
+    if (compPoints === 5  || playerPoints === 5){
+        if(compPoints > playerPoints){
             alert("You Lose! Better Luck Next Time");
         }
         else if (playerPoints > compPoints){
@@ -109,7 +109,7 @@ const scissors = document.querySelector('#scissors');
 rock.addEventListener('click', () => {
     playerSelection = "rock";
     computerSelection = getComputerChoice();
-    let res = playRound(playerSelection, computerSelection);
+    const res = playRound(playerSelection, computerSelection);
     printResult(res, playerSelection, computerSelection);
     checkResult();
 });
@@ -117,7 +117,7 @@ rock.addEventListener('click', () => {
 paper.addEventListener('click',() => {
     playerSelection = "paper";
     computerSelection = getComputerChoice();
-    let res = playRound(playerSelection, computerSelection);
+    const res = playRound(playerSelection, computerSelection);
     printResult(res,playerSelection,computerSelection);
     checkResult();
 });
@@ -125,7 +125,7 @@ paper.addEventListener('click',() => {
 scissors.addEventListener('click',() => {
     playerSelection = "scissors";
     computerSelection = getComputerChoice();
-    let res = playRound(playerSelection, computerSelection);
+    const res = playRound(playerSelection, computerSelection);
     printResult(res,playerSelection,computerSelection);
     checkResult();
 });
